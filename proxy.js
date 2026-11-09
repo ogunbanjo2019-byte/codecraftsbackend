@@ -11,7 +11,7 @@ function allowedOrigins() {
     .map((origin) => origin.replace(/\/$/, ''));
 }
 
-export function middleware(request) {
+export function proxy(request) {
   const origin = request.headers.get('origin');
   const allowed =
     origin && allowedOrigins().includes(origin.replace(/\/$/, ''));
