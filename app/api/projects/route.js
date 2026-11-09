@@ -2,6 +2,11 @@ import { projectSchema } from '@/lib/validation/forms';
 import { submitForm } from '@/lib/http/public-form';
 import { ok, fail } from '@/lib/http/responses';
 import { randomUUID } from 'node:crypto';
+
+export async function GET() {
+  return ok(null, "Projects API endpoint is live", 200);
+}
+
 export async function POST(req) {
   const r = await submitForm(req, projectSchema, 'project_requests', {
     map: (v) => ({
