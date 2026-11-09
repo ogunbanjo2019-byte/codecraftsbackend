@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: codecraft-backend
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm test && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/services
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: FIREBASE_PROJECT_ID
+        sync: false
+      - key: FIREBASE_CLIENT_EMAIL
+        sync: false
+      - key: FIREBASE_PRIVATE_KEY
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: NEXT_PUBLIC_SITE_URL
+        sync: false
+      - key: CONTACT_NOTIFICATION_EMAIL
+        sync: false
