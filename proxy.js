@@ -1,9 +1,14 @@
 import { NextResponse } from 'next/server';
 
+const DEFAULT_FRONTEND_ORIGIN =
+  'https://codecraft-frontend-website-6l3b.vercel.app';
+
 function allowedOrigins() {
   return [
     process.env.FRONTEND_URL,
     process.env.NEXT_PUBLIC_SITE_URL,
+    DEFAULT_FRONTEND_ORIGIN,
+    process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`,
     'http://localhost:3000',
     'http://localhost:5173',
   ]
